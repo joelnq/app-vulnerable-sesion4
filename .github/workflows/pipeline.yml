@@ -38,11 +38,13 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Levantar la app en segundo plano
+      - name: Levantar la app y verificar puerto
         run: |
           pip install "jinja2<3.0" "werkzeug<1.0" -r requirements.txt
-          python app.py &
+          nohup python app.py > app.log 2>&1 &
           sleep 5
+          cat app.log
+          curl --retry 5 --retry-delay 2 --retry-connrefused http://127.0.0.1:5000
 
       - name: Escaneo OWASP ZAP Baseline
         uses: zaproxy/action-baseline@v0.14.0
