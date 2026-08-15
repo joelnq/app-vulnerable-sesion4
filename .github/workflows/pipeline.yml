@@ -40,7 +40,7 @@ jobs:
 
       - name: Levantar la app y verificar puerto
         run: |
-          pip install "jinja2<3.0" "werkzeug<1.0" -r requirements.txt
+          pip install "markupsafe<2.1.0" "itsdangerous<2.0.0" "jinja2<3.0" "werkzeug<1.0" -r requirements.txt
           nohup python app.py > app.log 2>&1 &
           sleep 5
           cat app.log
