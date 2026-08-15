@@ -52,4 +52,4 @@ jobs:
         with:
           target: 'http://localhost:8080'
           fail_action: false
-          create_issue: false
+          allow_issue_writing: false
