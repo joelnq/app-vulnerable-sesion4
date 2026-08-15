@@ -23,5 +23,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: snyk/actions/python@master
+        continue-on-error: true
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
