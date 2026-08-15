@@ -1,10 +1,6 @@
 name: Pipeline DevSecOps
 on: [push, pull_request]
 
-permissions:
-  contents: read
-  issues: write
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -56,4 +52,5 @@ jobs:
         with:
           target: 'http://localhost:8080'
           fail_action: false
-          token: ${{ secrets.GITHUB_TOKEN }}
+          issue_title: ''
+          token: ''
